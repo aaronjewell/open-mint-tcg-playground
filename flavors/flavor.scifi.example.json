@@ -1,5 +1,4 @@
 {
-  "type": "sentinel",
   "properties": [
     {
       "key": "h",
@@ -12,8 +11,8 @@
       "value": 2
     }
   ],
+  "type": "sentinel",
   "palette": "rust, brass, teal",
-  "biome": "megacity underbelly",
   "title": "Nanoscopic Sentinel",
   "text": "A nanoscopic sentinel deployed in the megacity underbelly, finished in rust, brass, teal alloys. Noted for its featherweight and rapid systems.",
   "image": {
@@ -23,9 +22,6 @@
   },
   "tags": [
     "scifi.v1",
-    "megacity underbelly",
-    "rust",
-    "brass",
-    "teal"
+    "{{palette}}"
   ]
 }

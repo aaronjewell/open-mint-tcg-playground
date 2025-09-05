@@ -1,5 +1,4 @@
 {
-  "type": "wyrm",
   "properties": [
     {
       "key": "h",
@@ -12,8 +11,8 @@
       "value": 2
     }
   ],
+  "type": "wyrm",
   "palette": "sand, ochre, teal",
-  "biome": "cavern",
   "title": "Petite Wyrm",
   "text": "A petite wyrm native to the cavern, clad in sand, ochre, teal hues. Known for its lithe and swift nature.",
   "image": {
@@ -23,9 +22,6 @@
   },
   "tags": [
     "fantasy.v1",
-    "cavern",
-    "sand",
-    "ochre",
-    "teal"
+    "{{palette}}"
   ]
 }

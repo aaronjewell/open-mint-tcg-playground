@@ -24,6 +24,8 @@
       { "when": "else", "use": ["heavy_adj", "speed"] }
     ]}
   },
+  "type": "{{type}}",
+  "palette": "{{palette}}",
   "templates": {
     "title": "{{size|cap}} {{type|cap}}",
     "text": "A {{size}} {{type}} deployed in the {{biome}}, finished in {{palette}} alloys. Noted for its {{adjectives.0}} and {{adjectives.1}} systems."

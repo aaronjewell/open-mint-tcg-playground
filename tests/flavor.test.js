@@ -20,7 +20,7 @@ async function run() {
         var out = JSON.parse(stdout);
         assert.equal(typeof out.type, 'string');
         assert.equal(typeof out.title, 'string');
-        assert.equal(typeof out.biome, 'string');
+        assert.equal(typeof out.palette, 'string');
         assert.ok(Array.isArray(out.properties) && out.properties.length >= 2);
         assert.ok(out.tags.includes('fantasy.v1'));
         assert.equal(out.properties.find(p => p.key === 'h')?.label, 'HP');

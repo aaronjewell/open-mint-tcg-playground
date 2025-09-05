@@ -79,6 +79,8 @@
         ]
       }
     },
+    "type": { "type": "string" },
+    "palette": { "type": "string" },
     "templates": {
       "type": "object",
       "required": ["title", "text"],

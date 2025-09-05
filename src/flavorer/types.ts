@@ -48,6 +48,8 @@ export interface ThemeDefinition {
     locale: string;
     properties: Properties;
     selectors: Record<string, Selector>;
+    type: string;
+    palette: string;
     templates: TemplatesDef;
     image: ImageDef;
 }
@@ -67,10 +69,9 @@ export interface Image {
 }
 
 export interface Flavor {
-    type: string;
     properties: PropertyDef[];
+    type: string;
     palette: string;
-    biome: string;
     title: string;
     text: string;
     image: Image;

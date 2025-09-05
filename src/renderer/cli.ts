@@ -11,7 +11,7 @@ function assertFlavor(flavor: any): asserts flavor is Flavor {
     if (flavor.type === undefined) throw new Error('Invalid flavor output, missing type');
     if (flavor.properties === undefined || typeof flavor.properties !== 'object') throw new Error('Invalid flavor output, missing properties');
     if (flavor.palette === undefined) throw new Error('Invalid flavor output, missing palette');
-    if (flavor.biome === undefined) throw new Error('Invalid flavor output, missing biome');
+    if (flavor.type === undefined) throw new Error('Invalid flavor output, missing type');
     if (flavor.title === undefined) throw new Error('Invalid flavor output, missing title');
     if (flavor.text === undefined) throw new Error('Invalid flavor output, missing text');
     if (flavor.image === undefined || typeof flavor.image !== 'object' || flavor.image.style === undefined) throw new Error('Invalid flavor output, missing image');

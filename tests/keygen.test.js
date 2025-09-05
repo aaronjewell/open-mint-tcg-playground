@@ -9,7 +9,7 @@ async function run() {
   const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
   const outDir = await mkdtemp(path.join(os.tmpdir(), 'omt-keys-'));
 
-  const proc = spawn(process.execPath, [path.join(root, 'dist', 'signer', 'gen-key.js'), outDir]);
+  const proc = spawn(process.execPath, [path.join(root, 'dist', 'signer', 'gen-key.js'), '--out', outDir]);
   let stdout = '';
   let stderr = '';
   proc.stdout.on('data', (d) => { stdout += d.toString(); });
