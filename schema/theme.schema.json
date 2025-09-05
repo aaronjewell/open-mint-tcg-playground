@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Theme",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "themeId",
+    "locale",
+    "stats",
+    "selectors",
+    "templates",
+    "image",
+    "assembly"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 2 },
+    "themeId": { "type": "string" },
+    "locale": { "type": "string" },
+    "stats": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "type": "string" }
+    },
+    "selectors": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": ["kind", "values", "byte"],
+            "properties": {
+              "kind": { "type": "string", "const": "table" },
+              "values": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+              "byte": { "type": "integer", "minimum": 0, "maximum": 31 }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": ["kind", "rules"],
+            "properties": {
+              "kind": { "type": "string", "const": "bucket" },
+              "rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["when", "pick"],
+                  "properties": {
+                    "when": { "type": "string" },
+                    "pick": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+                  },
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": ["kind", "rules"],
+            "properties": {
+              "kind": { "type": "string", "const": "assembly" },
+              "rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["when", "use"],
+                  "properties": {
+                    "when": { "type": "string" },
+                    "use": { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 4 }
+                  },
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "templates": {
+      "type": "object",
+      "required": ["title", "text"],
+      "properties": {
+        "title": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    },
+    "image": {
+      "type": "object",
+      "required": ["style", "prompt"],
+      "properties": {
+        "style": { "type": "string" },
+        "description": { "type": "string" },
+        "negative": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}
+
+

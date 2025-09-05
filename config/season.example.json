@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "seasonId": 1,
+  "name": "Season 1: Minty Fresh",
+  "mining": {
+    "mode": "BLIND",
+    "hash": "SHA-256",
+    "gene": {
+      "alphabet": "abcd",
+      "length": 12
+    },
+    "viability": {
+      "type": "zeros-in-hex",
+      "suffix": ":viability",
+      "threshold": 16
+    }
+  },
+  "propertiesFromCode": {
+    "version": 1,
+    "rules": [
+      { "key": "h", "suffix": ":health", "method": "zeros-in-hex-div2-cap10" },
+      { "key": "a", "suffix": ":attack", "method": "zeros-in-hex-div2-cap10" }
+    ]
+  },
+  "signing": { "algo": "Ed25519", "publicKeyBase64": "oVkDhbSHtroH/yahp2s/mtLNdYinkFxLGjBzGgNdK7E=" }
+}
+
+

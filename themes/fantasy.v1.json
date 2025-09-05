@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "themeId": "fantasy.v1",
+  "locale": "en-US",
+  "properties": { "h": "HP", "a": "ATK" },
+  "selectors": {
+    "size": { "kind": "bucket", "rules": [
+      { "when": "h <= 1", "pick": ["minute", "minuscule", "tiny", "petite", "wee", "pint-sized", "diminutive", "compact"] },
+      { "when": "h <= 3", "pick": ["medium", "average", "middling", "well-proportioned", "sturdy", "stocky", "solid"] },
+      { "when": "else", "pick": ["large", "huge", "massive", "hulking", "towering", "colossal", "gargantuan", "titanic"] }
+    ]},
+    "speed": { "kind": "bucket", "rules": [
+      { "when": "h <= 1", "pick": ["swift", "skittering", "nimble"] },
+      { "when": "h >= 3", "pick": ["lumbering", "ponderous", "stalwart"] },
+      { "when": "else", "pick": ["agile", "steady"] }
+    ]},
+    "type": { "kind": "table", "values": ["wisp", "sprite", "wolf", "boar", "troll", "golem", "wyrm", "griffin"], "byte": 2 },
+    "light_adj": { "kind": "table", "values": ["airy", "quick", "feathered", "glass-boned", "leafy", "dawnlit", "lithe", "velveteen"], "byte": 7 },
+    "heavy_adj": { "kind": "table", "values": ["stonebound", "ironclad", "barkhide", "earthshod", "glacial", "amber-plated", "bastion", "granite"], "byte": 13 },
+    "palette": { "kind": "table", "values": ["moss, fern, slate", "ember, coal, brass", "mist, pearl, indigo", "sand, ochre, teal"], "byte": 18 },
+    "biome": { "kind": "table", "values": ["forest", "bog", "mountain", "steppe", "cavern", "coast", "ruins", "skyreach"], "byte": 30 }
+    ,
+    "adjectives": { "kind": "assembly", "rules": [
+      { "when": "h <= 2", "use": ["light_adj", "speed"] },
+      { "when": "else", "use": ["heavy_adj", "speed"] }
+    ]}
+  },
+  "templates": {
+    "title": "{{size|cap}} {{type|cap}}",
+    "text": "A {{size}} {{type}} native to the {{biome}}, clad in {{palette}} hues. Known for its {{adjectives.0}} and {{adjectives.1}} nature."
+  },
+  "image": {
+    "style": "illustration, fantasy, centered subject, high detail",
+    "description": "A {{size}} {{type}} in a {{biome}} biome, {{adjectives.0}}, {{adjectives.1}}. The scene is colored with the hues of {{palette}}.",
+    "negative": "text, watermark, extra limbs, trading card frame, card being held, person holding a card, hands, fingers, text, watermark, logo, UI, border"
+  }
+}
+
+

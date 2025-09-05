@@ -1,0 +1,18 @@
+node_modules
+config/*
+!config/season.example.json
+.DS_Store
+
+# default key gen dirs
+keys/*
+
+# build
+dist
+
+# default output dirs
+certs/*
+!certs/cert.example.json
+flavors/*
+!flavors/flavor.example.json
+cards/*
+!cards/card.example.svg

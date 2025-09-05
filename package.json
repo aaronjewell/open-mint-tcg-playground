@@ -1,0 +1,40 @@
+{
+  "name": "open-mint-tcg-impl",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsc -p tsconfig.json",
+    "presigner": "npm run build",
+    "signer": "node dist/signer/server.js",
+    "preminer": "npm run build",
+    "miner": "node dist/miner/cli.js",
+    "preverify": "npm run build",
+    "verify": "node dist/verifier/cli.js",
+    "prekeygen": "npm run build",
+    "keygen": "node dist/signer/gen-key.js",
+    "preflavor": "npm run build",
+    "flavor": "node dist/flavorer/cli.js",
+    "prerender": "npm run build",
+    "render": "node dist/renderer/cli.js",
+    "precreate-card": "npm run build",
+    "create-card": "bash scripts/create-card.sh",
+    "test:flavor": "node tests/flavor.test.js",
+    "test:verifier": "node tests/verifier.test.js",
+    "test:renderer": "node tests/renderer.test.js",
+    "test:keygen": "node tests/keygen.test.js",
+    "pretest": "npm run build",
+    "test": "npm run -s test:flavor && npm run -s test:verifier && npm run -s test:renderer && npm run -s test:keygen"
+  },
+  "dependencies": {
+    "@noble/ed25519": "^3.0.0",
+    "es-arraybuffer-base64": "^1.1.2",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/qrcode": "^1.5.5",
+    "typescript": "^5.6.3"
+  }
+}

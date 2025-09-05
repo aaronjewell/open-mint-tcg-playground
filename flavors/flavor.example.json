@@ -1,0 +1,31 @@
+{
+  "type": "wyrm",
+  "properties": [
+    {
+      "key": "h",
+      "label": "HP",
+      "value": 1
+    },
+    {
+      "key": "a",
+      "label": "ATK",
+      "value": 2
+    }
+  ],
+  "palette": "sand, ochre, teal",
+  "biome": "cavern",
+  "title": "Petite Wyrm",
+  "text": "A petite wyrm native to the cavern, clad in sand, ochre, teal hues. Known for its lithe and swift nature.",
+  "image": {
+    "style": "illustration, fantasy, centered subject, high detail",
+    "description": "A petite wyrm in a cavern biome, lithe, swift. The scene is colored with the hues of sand, ochre, teal.",
+    "negative": "text, watermark, extra limbs, trading card frame, card being held, person holding a card, hands, fingers, text, watermark, logo, UI, border"
+  },
+  "tags": [
+    "fantasy.v1",
+    "cavern",
+    "sand",
+    "ochre",
+    "teal"
+  ]
+}

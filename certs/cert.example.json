@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "seasonId": 1,
+  "mining": {
+    "mode": "BLIND",
+    "viabilityZeros": 16,
+    "threshold": 16
+  },
+  "code": "bcaabcadbcdc",
+  "seedHex": "1b134e5c8e39effe839fac00ff7fd6f7dad99b0382ba7f3a69de8187d610cc88",
+  "properties": {
+    "h": 1,
+    "a": 2
+  },
+  "signatureB64": "8QmFCjsF5kG+YEjFlkZuZ32Ttf1LW+OEMXHouHHpXGhmDsWJl52QoH3ZDKw/z7+RlVGyI8tmTvBsOi0O0G5ZBw=="
+}
