@@ -6,17 +6,16 @@
     "schemaVersion",
     "themeId",
     "locale",
-    "stats",
+    "properties",
     "selectors",
     "templates",
-    "image",
-    "assembly"
+    "image"
   ],
   "properties": {
     "schemaVersion": { "type": "integer", "const": 2 },
     "themeId": { "type": "string" },
     "locale": { "type": "string" },
-    "stats": {
+    "properties": {
       "type": "object",
       "minProperties": 1,
       "additionalProperties": { "type": "string" }

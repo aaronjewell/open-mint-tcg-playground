@@ -14,5 +14,7 @@ certs/*
 !certs/cert.example.json
 flavors/*
 !flavors/flavor.example.json
+!flavors/flavor.scifi.example.json
 cards/*
 !cards/card.example.svg
+!cards/card.scifi.example.svg
