@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "themeId": "scifi.v1",
+  "locale": "en-US",
+  "properties": { "h": "SHD", "a": "WPN" },
+  "selectors": {
+    "size": { "kind": "bucket", "rules": [
+      { "when": "h <= 1", "pick": ["micro", "compact", "slimline", "nanoscopic", "lightweight", "subcompact", "pocket-class", "streamlined"] },
+      { "when": "h <= 3", "pick": ["standard", "balanced", "sturdy", "reinforced", "robust", "mid-class", "industrial"] },
+      { "when": "else", "pick": ["heavy", "massive", "colossal", "siege-class", "capital-class", "titan-class", "gargantuan"] }
+    ]},
+    "speed": { "kind": "bucket", "rules": [
+      { "when": "h <= 1", "pick": ["rapid", "nimble", "maneuverable"] },
+      { "when": "h >= 3", "pick": ["lumbering", "grav-slow", "steadfast"] },
+      { "when": "else", "pick": ["agile", "steady"] }
+    ]},
+    "type": { "kind": "table", "values": ["drone", "android", "raider", "mech", "xeno", "cyborg", "sentinel", "nanoswarm"], "byte": 2 },
+    "light_adj": { "kind": "table", "values": ["sleek", "aerodynamic", "carbon-fiber", "ion-burnished", "phase-tuned", "lattice-framed", "featherweight", "servo-quick"], "byte": 7 },
+    "heavy_adj": { "kind": "table", "values": ["titanium-plated", "armored", "reinforced", "grav-anchored", "plasma-shielded", "monolithic", "bulkhead-grade", "quantum-hardened"], "byte": 13 },
+    "palette": { "kind": "table", "values": ["neon, chrome, midnight", "cobalt, white, orange", "obsidian, violet, cyan", "rust, brass, teal"], "byte": 18 },
+    "biome": { "kind": "table", "values": ["orbital dock", "asteroid mine", "desert colony", "ice moon", "megacity underbelly", "ocean platform", "derelict ship", "terraforming bay"], "byte": 30 },
+    "adjectives": { "kind": "assembly", "rules": [
+      { "when": "h <= 2", "use": ["light_adj", "speed"] },
+      { "when": "else", "use": ["heavy_adj", "speed"] }
+    ]}
+  },
+  "templates": {
+    "title": "{{size|cap}} {{type|cap}}",
+    "text": "A {{size}} {{type}} deployed in the {{biome}}, finished in {{palette}} alloys. Noted for its {{adjectives.0}} and {{adjectives.1}} systems."
+  },
+  "image": {
+    "style": "illustration, sci-fi, centered subject, high detail",
+    "description": "A {{size}} {{type}} within a {{biome}} habitat, {{adjectives.0}}, {{adjectives.1}}. The scene is illuminated by {{palette}} luminescence.",
+    "negative": "text, watermark, extra limbs, trading card frame, card being held, person holding a card, hands, fingers, text, watermark, logo, UI, border"
+  }
+}
+
+

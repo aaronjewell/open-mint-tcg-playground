@@ -1,0 +1,31 @@
+{
+  "type": "sentinel",
+  "properties": [
+    {
+      "key": "h",
+      "label": "SHD",
+      "value": 1
+    },
+    {
+      "key": "a",
+      "label": "WPN",
+      "value": 2
+    }
+  ],
+  "palette": "rust, brass, teal",
+  "biome": "megacity underbelly",
+  "title": "Nanoscopic Sentinel",
+  "text": "A nanoscopic sentinel deployed in the megacity underbelly, finished in rust, brass, teal alloys. Noted for its featherweight and rapid systems.",
+  "image": {
+    "style": "illustration, sci-fi, centered subject, high detail",
+    "description": "A nanoscopic sentinel within a megacity underbelly habitat, featherweight, rapid. The scene is illuminated by rust, brass, teal luminescence.",
+    "negative": "text, watermark, extra limbs, trading card frame, card being held, person holding a card, hands, fingers, text, watermark, logo, UI, border"
+  },
+  "tags": [
+    "scifi.v1",
+    "megacity underbelly",
+    "rust",
+    "brass",
+    "teal"
+  ]
+}
