@@ -13,11 +13,30 @@ function* randomCharStream(alphabet: string, length: number): Generator<string, 
   }
 }
 
+interface SimpleStrategy {
+  checkViability(code: string): Promise<boolean>;
+}
+
+function createSimpleViabilityStrategy(viabilitySuffix: string, threshold: number): SimpleStrategy {
+  return {
+    async checkViability(code: string): Promise<boolean> {
+      const v = await sha256Hex(code + viabilitySuffix);
+      const z = countChar(v, '0');
+      return z >= threshold;
+    }
+  };
+}
+
 export function mineViableCode(alphabet: string, length: number, viabilitySuffix: string, threshold: number, opts?: { signal?: AbortSignal }): EventEmitter<MiningEvents> {
+  const strategy = createSimpleViabilityStrategy(viabilitySuffix, threshold);
+  return mineWithStrategy(alphabet, length, strategy, opts);
+}
+
+export function mineWithStrategy(alphabet: string, length: number, strategy: any, opts?: { signal?: AbortSignal }): EventEmitter<MiningEvents> {
   const emitter = new EventEmitter<MiningEvents>();
   const start = Date.now();
   const iter = randomCharStream(alphabet, length);
-  const BATCH_SIZE = 1000;
+  const BATCH_SIZE = 10000;
 
   let attempts = 0;
   let aborted = opts?.signal?.aborted || false;
@@ -35,9 +54,8 @@ export function mineViableCode(alphabet: string, length: number, viabilitySuffix
       for (let i = 0; i < BATCH_SIZE && !aborted; i++) {
         const code = iter.next().value;
         attempts++;
-        const v = await sha256Hex(code + viabilitySuffix);
-        const z = countChar(v, '0');
-        if (z >= threshold) {
+        
+        if (await strategy.checkViability(code)) {
           emitter.emit('viableCode', code, attempts, Date.now() - start);
           return;
         }

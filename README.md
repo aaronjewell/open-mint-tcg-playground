@@ -61,6 +61,53 @@ npm run render -- \
   [--cert <your-cert.json>] # cert to optionally add as QR code to card image
 ```
 
+### Assemble VM program (Card DSL)
+```bash
+npm run assemble -- \
+  --input ./src/card-dsl/examples/test-program.asm \
+  [--output ./src/card-dsl/examples/test-program.bin] \
+  [--disassemble]
+```
+
+Examples:
+```bash
+# Assemble text to bytecode
+npm run assemble -- -i ./src/card-dsl/examples/test-program.asm -o ./src/card-dsl/examples/test-program.bin
+
+# Disassemble bytecode to assembly (prints to stdout)
+npm run assemble -- -i ./src/card-dsl/examples/test-program.bin -d
+```
+
+### Decode VM bytecode (tokens/AST)
+```bash
+npm run decode -- \
+  --input ./src/card-dsl/examples/test-program.bin \
+  [--tokens] \
+  [--ast] \
+  [--verbose]
+```
+
+Examples:
+```bash
+# Show tokens
+npm run decode -- -i ./src/card-dsl/examples/test-program.bin -t
+
+# Show AST
+npm run decode -- -i ./src/card-dsl/examples/test-program.bin -a
+
+# Verbose (tokens + AST)
+npm run decode -- -i ./src/card-dsl/examples/test-program.bin --verbose
+```
+
+### Explore valid programs (helper)
+Generates random codes, decodes/parses them, and prints viability/semantic stats and samples.
+```bash
+npm run check-valid-programs
+```
+Notes:
+- Uses internal defaults (e.g., version byte 0x01) and finite sampling.
+- Prints top parse/semantic error counts and a few valid samples when found.
+
 ### Create a card end-to-end 
 ```bash
 # Mines + signs, assembles flavor, renders SVG

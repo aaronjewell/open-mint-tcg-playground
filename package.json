@@ -18,14 +18,21 @@
     "flavor": "node dist/flavorer/cli.js",
     "prerender": "npm run build",
     "render": "node dist/renderer/cli.js",
+    "preassemble": "npm run build",
+    "assemble": "node dist/card-dsl/assembler-cli.js",
+    "predecode": "npm run build", 
+    "decode": "node dist/card-dsl/decoder-cli.js",
     "precreate-card": "npm run build",
     "create-card": "bash scripts/create-card.sh",
+    "precheck-valid-programs": "npm run build",
+    "check-valid-programs": "node dist/card-dsl/check-valid-programs.js",
     "test:flavor": "node tests/flavor.test.js",
     "test:verifier": "node tests/verifier.test.js",
     "test:renderer": "node tests/renderer.test.js",
     "test:keygen": "node tests/keygen.test.js",
+    "test:card-dsl": "node tests/card-dsl.test.js",
     "pretest": "npm run build",
-    "test": "npm run -s test:flavor && npm run -s test:verifier && npm run -s test:renderer && npm run -s test:keygen"
+    "test": "npm run -s test:flavor && npm run -s test:verifier && npm run -s test:renderer && npm run -s test:keygen && npm run -s test:card-dsl"
   },
   "dependencies": {
     "@noble/ed25519": "^3.0.0",
